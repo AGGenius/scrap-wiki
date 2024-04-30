@@ -30,8 +30,9 @@ app.get(('/'), (req, res) => {
                 rapMusiciansPromises.push(promise);
             })
 
+            // Lanzamos todas las promesas dentro del array de promesas. Comprobamos que recibimos una respuesta correcta, y de serlo, guardara los datos en un objeto usando "Cheerio". Estos
+            // datos se almacenaran en un array de objetos para su uso posterior.
             Promise.all(rapMusiciansPromises).then((response) => {
-
                 response.forEach((elemment) => {
                     if(elemment.status === 200) {
                         const musicianHtml = elemment.data;
